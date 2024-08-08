@@ -1,7 +1,7 @@
 from behave import given, when, then
 from todo_list import ToDoList
 
-# Initialize a global instance of ToDoList for the steps
+# Inicializar una instancia global de ToDoList para los pasos
 to_do_list = ToDoList()
 
 #-----------------Primera Actividad-------------------#
@@ -22,7 +22,7 @@ def step_impl(context, task):
 
 #-----------------Segunda Actividad-------------------#
 
-@given('the to-do list contains tasks:')
+@given('the to-do list contains tasks')
 def step_impl(context):
     to_do_list.clear_tasks()
     for row in context.table:
@@ -32,7 +32,7 @@ def step_impl(context):
 def step_impl(context):
     context.output = to_do_list.list_tasks()
 
-@then('the output should contain:')
+@then('the output should contain')
 def step_impl(context):
     expected_tasks = [row['Task'] for row in context.table]
     actual_tasks = [t['task'] for t in context.output]
@@ -41,7 +41,7 @@ def step_impl(context):
 
 #-----------------Tercera Actividad-------------------#
 
-@given('the to-do list contains tasks to be marked:')
+@given('the to-do list contains tasks to be marked')
 def step_impl(context):
     to_do_list.clear_tasks()
     for row in context.table:
@@ -59,7 +59,7 @@ def step_impl(context, task):
 
 #-----------------Cuarta Actividad-------------------#
 
-@given('the to-do list contains tasks to be cleared:')
+@given('the to-do list contains tasks to be cleared')
 def step_impl(context):
     to_do_list.clear_tasks()
     for row in context.table:
@@ -76,7 +76,7 @@ def step_impl(context):
 
 #-----------------Quinta Actividad-------------------#
 
-@given('the to-do list contains tasks to be deleted:')
+@given('the to-do list contains tasks to be deleted')
 def step_impl(context):
     to_do_list.clear_tasks()
     for row in context.table:
